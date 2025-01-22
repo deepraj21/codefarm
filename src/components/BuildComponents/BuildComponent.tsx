@@ -189,18 +189,24 @@ const BuildComponent = () => {
                             )
                         }
                         {
-                            showCodebase ? (
-                                <div className="absolute top-3 z-10 left-3 block md:hidden">
-                                    <Button variant="ghost" className="h-8 text-sm rounded-full border" size='sm' onClick={() => setShowCodebase(false)}>
-                                        Show Chat
-                                    </Button>
-                                </div>
-                            ) : (
-                                <div className="absolute top-3 z-10 left-3 block md:hidden">
-                                        <Button variant="ghost" className="h-8 text-sm rounded-full border" size='sm' onClick={() => setShowCodebase(true)}>
-                                        Show CodeBase
-                                    </Button>
-                                </div>
+                            chatHistory.length > 0 && (
+                                <>
+                                    {
+                                        showCodebase ? (
+                                            <div className="absolute top-3 z-10 left-3 block md:hidden">
+                                                <Button variant="ghost" className="h-8 text-sm rounded-full border" size='sm' onClick={() => setShowCodebase(false)}>
+                                                    Show Chat
+                                                </Button>
+                                            </div>
+                                        ) : (
+                                            <div className="absolute top-3 z-10 left-3 block md:hidden">
+                                                <Button variant="ghost" className="h-8 text-sm rounded-full border" size='sm' onClick={() => setShowCodebase(true)}>
+                                                    Show CodeBase
+                                                </Button>
+                                            </div>
+                                        )
+                                    }
+                                </>
                             )
                         }
                         
