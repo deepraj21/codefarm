@@ -285,7 +285,7 @@ const BuildComponent = () => {
                                                         <Box className="w-4 h-4" />
                                                     </div>
                                                     <Input
-                                                        placeholder="How can frame help you today..."
+                                                        placeholder="what we are building today?..."
                                                         className="w-full rounded-full py-6 pl-10 pr-[55px] "
                                                         value={searchQuery}
                                                         onChange={(e) => setSearchQuery(e.target.value)}
