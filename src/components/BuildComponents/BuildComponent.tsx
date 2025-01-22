@@ -177,7 +177,7 @@ const BuildComponent = () => {
                                 <>
                                     <div className="absolute left-0 top-0 w-fit flex flex-row items-center gap-2 p-3 justify-between">
                                         <div className="flex items-center gap-2">
-                                            <Box /><span className="text-[20px]">Frame</span>
+                                            <Box /><span className="text-[20px]">CodeFarm</span>
                                         </div>
                                     </div>
                                     <div className="absolute right-0 top-0 w-fit flex flex-row items-center gap-2 p-3 justify-between">
