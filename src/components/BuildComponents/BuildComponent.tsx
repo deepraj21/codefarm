@@ -287,7 +287,7 @@ const BuildComponent = () => {
                                                             <Box className="w-4 h-4" />
                                                         </div>
                                                         <Input
-                                                            placeholder="How can frame help you today..."
+                                                            placeholder="What we are building today..."
                                                             className="w-full rounded-full py-6 pl-10 pr-[55px] "
                                                             value={searchQuery}
                                                             onChange={(e) => setSearchQuery(e.target.value)}
@@ -319,6 +319,15 @@ const BuildComponent = () => {
                                                             </Button>
                                                         )}
                                                     </div>
+                                                    {showScrollButton && (
+                                                        <Button
+                                                            className="absolute bottom-20 right-3 rounded-full h-8 w-8 animate-bounce"
+                                                            onClick={scrollToBottom}
+                                                            variant='secondary'
+                                                        >
+                                                            <ArrowDown className="w-4 h-4" />
+                                                        </Button>
+                                                    )}
                                                 </div>
                                                 {
                                                     chatHistory.length == 0 && (
