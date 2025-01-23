@@ -214,19 +214,20 @@ const BuildComponent = () => {
                             
                             <div className="space-y-4">
                                 {/* Header */}
-                                {
-                                    chatHistory.length == 0 && (
-                                        <div className="transition-opacity duration-500">
-                                            <h1 className="md:text-5xl text-2xl font-normal text-center mb-6">
-                                                What do you want to build?
-                                            </h1>
-                                            <p className="text-[12px] md:text-[18px] font-normal text-center">Prompt, run, edit web apps with LLM and GenAI.</p>
-                                            
-                                        </div>
-                                    )
-                                }
+                                <BlurFade delay={0.50} inView>
+                                    {
+                                        chatHistory.length == 0 && (
+                                            <div className="transition-opacity duration-500">
+                                                <h1 className="md:text-5xl text-2xl font-normal text-center mb-6">
+                                                    What do you want to build?
+                                                </h1>
+                                                <p className="text-[12px] md:text-[18px] font-normal text-center">Prompt, run, edit web apps with LLM and GenAI.</p>
+
+                                            </div>
+                                        )
+                                    }
+                                </BlurFade>
                                
-                                {/* Search Input */}
                                 {
                                     !showCodebase && (
                                         <>
@@ -279,51 +280,52 @@ const BuildComponent = () => {
                                                     </div>
                                                 )
                                             }
-                                            <div className="p-2 rounded-full dark:bg-muted/40 bg-muted">
-                                                <div className="relative">
-                                                    <div className="absolute top-1/2 -translate-y-1/2 flex items-center space-x-2 pl-4">
-                                                        <Box className="w-4 h-4" />
+                                            <BlurFade delay={0.25} inView>
+                                                <div className="p-2 rounded-full dark:bg-muted/40 bg-muted">
+                                                    <div className="relative">
+                                                        <div className="absolute top-1/2 -translate-y-1/2 flex items-center space-x-2 pl-4">
+                                                            <Box className="w-4 h-4" />
+                                                        </div>
+                                                        <Input
+                                                            placeholder="How can frame help you today..."
+                                                            className="w-full rounded-full py-6 pl-10 pr-[55px] "
+                                                            value={searchQuery}
+                                                            onChange={(e) => setSearchQuery(e.target.value)}
+                                                            disabled={inputDisabled}
+                                                            onKeyPress={(e) => {
+                                                                if (e.key === 'Enter') {
+                                                                    handleSearch();
+                                                                }
+                                                            }}
+                                                        />
+                                                        <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center space-x-4">
+                                                            <Button
+                                                                className="w-8 h-8 rounded-full bg-[#20B8CD]/20 hover:bg-[#20B8CD]/40"
+                                                                variant="secondary"
+                                                                size="sm"
+                                                                onClick={handleSearch}
+                                                                disabled={loading}
+                                                            >
+                                                                {loading ? <Box className="animate-spin" /> : <ArrowUp />}
+                                                            </Button>
+                                                        </div>
+                                                        {showScrollButton && (
+                                                            <Button
+                                                                className="absolute bottom-20 right-3 rounded-full h-8 w-8 animate-bounce"
+                                                                onClick={scrollToBottom}
+                                                                variant='secondary'
+                                                            >
+                                                                <ArrowDown className="w-4 h-4" />
+                                                            </Button>
+                                                        )}
                                                     </div>
-                                                    <Input
-                                                        placeholder="How can frame help you today..."
-                                                        className="w-full rounded-full py-6 pl-10 pr-[55px] "
-                                                        value={searchQuery}
-                                                        onChange={(e) => setSearchQuery(e.target.value)}
-                                                        disabled={inputDisabled}
-                                                        onKeyPress={(e) => {
-                                                            if (e.key === 'Enter') {
-                                                                handleSearch();
-                                                            }
-                                                        }}
-                                                    />
-                                                    <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center space-x-4">
-                                                        <Button
-                                                            className="w-8 h-8 rounded-full bg-[#20B8CD]/20 hover:bg-[#20B8CD]/40"
-                                                            variant="secondary"
-                                                            size="sm"
-                                                            onClick={handleSearch}
-                                                            disabled={loading}
-                                                        >
-                                                            {loading ? <Box className="animate-spin" /> : <ArrowUp />}
-                                                        </Button>
-                                                    </div>
-                                                    {showScrollButton && (
-                                                        <Button
-                                                            className="absolute bottom-20 right-3 rounded-full h-8 w-8 animate-bounce"
-                                                            onClick={scrollToBottom}
-                                                            variant='secondary'
-                                                        >
-                                                            <ArrowDown className="w-4 h-4" />
-                                                        </Button>
-                                                    )}
                                                 </div>
-                                            </div>
-                                            {
-                                                chatHistory.length == 0 && (
-                                                    <BuildMarquee setSearchQuery={setSearchQuery} />
-                                                )
-                                            }
-                                            
+                                                {
+                                                    chatHistory.length == 0 && (
+                                                        <BuildMarquee setSearchQuery={setSearchQuery} />
+                                                    )
+                                                }
+                                            </BlurFade>
                                         </>
                                     )
                                 }

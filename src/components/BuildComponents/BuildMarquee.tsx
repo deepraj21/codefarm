@@ -11,6 +11,10 @@ import {
 
 const reviews = [
     {
+        icon: ShoppingCart,
+        body: "Develop an product page",
+    },
+    {
         icon: ListTodo,
         body: "Build a todo list app",
     },
@@ -26,10 +30,7 @@ const reviews = [
         icon: Music,
         body: "Create a music player",
     },
-    {
-        icon: ShoppingCart,
-        body: "Develop an product page",
-    },
+    
     {
         icon: Clock,
         body: "Create a pomodoro timer",
@@ -68,7 +69,7 @@ const ReviewCard = ({
 
 export function BuildMarquee({ setSearchQuery }: { setSearchQuery: (query: string) => void }) {
     return (
-        <div className="w-full max-w-2xl mx-auto mb-6 relative">
+        <div className="w-full max-w-2xl mx-auto mb-6 relative pt-4">
             <div className="flex flex-wrap justify-center">
                 {reviews.map((review, index) => (
                     <ReviewCard key={index} {...review} onClick={() => setSearchQuery(review.body)} />
